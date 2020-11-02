@@ -34,10 +34,16 @@ public class PedidoDaoImplementacion implements InterfazPedidoDAO {
 		
 		return null;
 	}
+	
+	@Override
+	public List<Pedido> obtenerTodos() {
+		return pedidos;
+	}
 
 	@Override
-	public void actualizar(Pedido pedido, String [] params) {
+	public void actualizar(Pedido pedido/*, String [] params*/) {
 		Pedido pedidoAActualizar = this.obtener(pedido.getCodigoPedido());
+		/* TODO:: Aceptar parametros que cambien datos del pedido */
 		pedidoAActualizar.setCodigoCliente(3);
 //		pedidoAActualizar.setFechaPedido(Objects.requireNonNull(params[1], "FechaPedido cannot be null"));
 //		pedidoAActualizar.setFechaEntrega(Objects.requireNonNull(params[2], "FechaEntrega cannot be null"));

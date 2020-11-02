@@ -9,6 +9,7 @@ import dao.PedidoDaoImplementacion;
 import exceptions.DuplicateException;
 import exceptions.PossibleDuplicateClientException;
 import model.Cliente;
+import model.Pedido;
 
 public class App {
 
@@ -66,8 +67,10 @@ public class App {
 
 		
 		PedidoDaoImplementacion pDao = new PedidoDaoImplementacion();
+		Pedido p1 = null;
 		try {
-			pDao.crear(PedidoBuilder.build(1, LocalDate.of(2020, 11, 30), 1));
+			p1 = PedidoBuilder.build(1, LocalDate.of(2020, 11, 30), 1);
+			pDao.crear(p1);
 			pDao.crear(PedidoBuilder.build(2, LocalDate.of(2020, 11, 30), 1));
 			pDao.crear(PedidoBuilder.build(3, LocalDate.of(2020, 11, 30), 15));
 		} catch (Exception e) {
@@ -79,7 +82,15 @@ public class App {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		
-		}	
+		}
+		
+
+		pDao.actualizar(p1);
+		
+		/* Imprimir todos los pedidos*/
+		for (Pedido p : pDao.obtenerTodos()) {
+			System.out.println(p);
+		}
 	}
 
 }

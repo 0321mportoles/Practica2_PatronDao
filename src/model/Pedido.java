@@ -88,7 +88,8 @@ public class Pedido {
 		this.codigoCliente = codigoCliente;
 	}
 
-
-	
-	 
+	@Override
+	public String toString() {
+		return "Pedido:: ID: " + this.codigoPedido + " Codigo de cliente: " + this.codigoCliente;
+	}	 
 }
