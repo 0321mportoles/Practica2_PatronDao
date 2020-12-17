@@ -3,18 +3,18 @@ package constructor;
 import java.time.LocalDate;
 
 import dao.ClienteDaoImplementacion;
-import dao.PedidoDaoImplementacion;
-import model.Pedido;
+import dao.ProductoDaoImplementacion;
+import model.Producto;
 
 public class PedidoBuilder {
-	public static Pedido build (
+	public static Producto build (
 			int codigoPedido,
 			LocalDate fechaEntrega,
 			int codigoCliente
 	) throws Exception 
 	{
 		
-		PedidoDaoImplementacion pedidoDao = new PedidoDaoImplementacion();
+		ProductoDaoImplementacion pedidoDao = new ProductoDaoImplementacion();
 		
 		if (!(pedidoDao.obtener(codigoPedido) == null)) {
 			throw new Exception("Pedido duplicado");
@@ -34,6 +34,6 @@ public class PedidoBuilder {
 		System.out.println("El pedido con id: " + codigoPedido + " ha sido creado");
 		
 		
-		return new Pedido(codigoPedido, fechaPedido, fechaEntrega, codigoCliente);
+		return new Producto(codigoPedido, fechaPedido, fechaEntrega, codigoCliente);
 	}
 }

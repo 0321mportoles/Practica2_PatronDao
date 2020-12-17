@@ -5,11 +5,11 @@ import java.time.LocalDate;
 import constructor.ClienteBuilder;
 import constructor.PedidoBuilder;
 import dao.ClienteDaoImplementacion;
-import dao.PedidoDaoImplementacion;
+import dao.ProductoDaoImplementacion;
 import exceptions.DuplicateException;
 import exceptions.PossibleDuplicateClientException;
 import model.Cliente;
-import model.Pedido;
+import model.Producto;
 
 public class App {
 
@@ -66,8 +66,8 @@ public class App {
 		
 
 		
-		PedidoDaoImplementacion pDao = new PedidoDaoImplementacion();
-		Pedido p1 = null;
+		ProductoDaoImplementacion pDao = new ProductoDaoImplementacion();
+		Producto p1 = null;
 		try {
 			p1 = PedidoBuilder.build(1, LocalDate.of(2020, 11, 30), 1);
 			pDao.crear(p1);
@@ -88,7 +88,7 @@ public class App {
 		pDao.actualizar(p1);
 		
 		/* Imprimir todos los pedidos*/
-		for (Pedido p : pDao.obtenerTodos()) {
+		for (Producto p : pDao.obtenerTodos()) {
 			System.out.println(p);
 		}
 	}

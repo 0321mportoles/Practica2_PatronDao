@@ -1,5 +1,7 @@
 package model;
 
+import constructor.ClienteBuilder;
+
 public class Cliente {
 	private int id;
 	private String nombreCliente;
@@ -16,7 +18,21 @@ public class Cliente {
 	private Integer codigoCliente;
 	private Integer codigoEmpleadoRepVentas;
 	private Float limiteCredito;
+	private enum tipoDoc{DNI, NIE};
+	private String email;
+	private String numeroDniNie;
+	private String password;
 	
+
+	
+//	public Cliente(String email, String numeroDniNie, String password) {
+//		super();
+//		this.email = email;
+//		this.numeroDniNie = numeroDniNie;
+//		this.password = password;
+//	}
+
+
 	
 	public Cliente(int id, String nombreCliente, String nombreContacto, String apellidoContacto, long telefono,
 			String fax, String lineaDireccion1, String lineaDireccion2, String ciudad, String region, String pais,
@@ -38,6 +54,7 @@ public class Cliente {
 		this.codigoEmpleadoRepVentas = codigoEmpleadoRepVentas;
 		this.limiteCredito = limiteCredito;
 	}
+	
 	public Cliente(int id, String nombreCliente, String apellidoContacto, long i) {
 		super();
 		this.id = id;
